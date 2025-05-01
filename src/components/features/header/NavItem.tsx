@@ -16,7 +16,8 @@ const NavItem: FC<NavProps> = memo(
     return (
       <NavLink
         to={link}
-        css={(isActive) => (isActive ? active : pending)}
+        css={navLink}
+        style={({ isActive }) => (isActive ? { color: "#8ee85a" } : { color: "#ffffff" })}
       >
         <div css={menu}>
           {children}
@@ -36,14 +37,8 @@ const NavItem: FC<NavProps> = memo(
 
 export default NavItem;
 
-const pending = css`
+const navLink = css`
   text-decoration: none;
-  color: #ffffff;
-`;
-
-const active = css`
-  text-decoration: none;
-  color: #8ee85a;
 `;
 
 const menu = css`
@@ -62,7 +57,6 @@ const overlay = css`
   left: 0;
   width: 100%;
   height: 100%;
-  color: white;
   font-size: 20px;
   z-index: 2;
 `;
