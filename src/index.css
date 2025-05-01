@@ -1,0 +1,30 @@
+body {
+  margin: 0;
+  font-family: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Arial", "Yu Gothic", "Meiryo", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  width: 100vw;
+  height: 100vh;
+  margin: 0px;
+  overflow-x: hidden;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.close {
+  display: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+@media (min-width: 1031px) {
+  body {
+    cursor: none;
+  }
+}
