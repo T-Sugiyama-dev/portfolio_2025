@@ -2,9 +2,15 @@
 import { FC, memo } from "react";
 import { css } from "@emotion/react";
 import { motion } from "framer-motion";
-import { CAREER_LIST } from "../../../../constants/career-description";
+import { CAREER_LIST, CareerItem, CheckPoint } from "../../../../constants/career-description";
 
 const Career: FC = memo(() => {
+
+  // 型ガードの関数を追加
+  const isCheckPoint = (item: CareerItem): item is CheckPoint => {
+    return 'title' in item;
+  };
+
   return (
     <div>
       {CAREER_LIST.map((item, index) => (
@@ -26,14 +32,22 @@ const Career: FC = memo(() => {
             initial="offscreen"
             whileInView="onscreen"
             viewport={{ once: false, amount: 0 }}
-            css={wrapper}
           >
-            <div css={content}>
-              <p css={term}>{item.term}</p>
-              <h4 css={role}>{item.role}</h4>
-              <p css={company}>{item.company}</p>
-              <p css={desc}>{item.desc}</p>
-            </div>
+            {isCheckPoint(item) ?
+              (
+                <div css={checkPoint}>
+                  <p css={title}>{item.title}</p>
+                  <p css={summary}>{item.summary}</p>
+                </div>
+              ) : (
+                <div css={content}>
+                  <p css={term}>{item.term}</p>
+                  <h4 css={role}>{item.role}</h4>
+                  <p css={company}>{item.company}</p>
+                  <p css={desc}>{item.desc}</p>
+                </div>
+              )
+            }
           </motion.div>
         </div>
       ))}
@@ -43,19 +57,41 @@ const Career: FC = memo(() => {
 
 export default Career;
 
-const wrapper = css`
-  background-color: rgb(255, 255, 255);
+const checkPoint = css`
+  background-color: rgb(67 75 247);
   border-radius: 15px;
-  margin: 100px 0px;
-  width: 80%;
+  width: 40%;
+  padding: 15px;
+  margin-bottom: 30px;
 
   @media (max-width: 500px) {
-    width: 95%;
+    width: 55%;
   }
 `;
 
+const title = css`
+  font-size: 20px;
+  margin: 0px;
+  color: #ffffff;
+  font-weight: bold;
+`;
+
+const summary = css`
+  font-size: 15px;
+  margin: 0px;
+  color: #ffffff;
+`;
+
 const content = css`
+  background-color: rgb(255, 255, 255);
+  border-radius: 15px;
+  margin-bottom: 100px;
+  width: 80%;
   padding: 15px;
+
+  @media (max-width: 500px) {
+    width: 90%;
+  }
 `;
 
 const term = css`
