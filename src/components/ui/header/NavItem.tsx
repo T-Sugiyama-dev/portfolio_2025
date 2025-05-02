@@ -43,7 +43,7 @@ const navLink = css`
 
 const menu = css`
   width: 100%;
-  height: 25vh;
+  height: 20vh;
   position: relative;
   overflow: hidden;
 `;

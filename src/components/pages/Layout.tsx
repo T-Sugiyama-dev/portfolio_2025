@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { Outlet } from "react-router-dom";
-import Header from "../features/header/Header";
-import Cursor from "../features/cursor/Cursor";
+import Header from "../ui/header/Header";
+import Cursor from "../ui/cursor/Cursor";
 
 // ページレイアウト
 const Layout: FC = () => {

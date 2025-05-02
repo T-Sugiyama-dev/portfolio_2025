@@ -1,6 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import { FC, memo } from "react";
-import { handleElHover, handleElLeave } from "../../cursor/Cursor";
+import { handleElHover, handleElLeave } from "../../../ui/cursor/Cursor";
 import { css, keyframes } from "@emotion/react";
 
 const Profile: FC = memo(() => {

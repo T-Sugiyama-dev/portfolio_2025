@@ -121,6 +121,22 @@ const Header: FC = memo(() => {
               },
             }}
           >
+            <NavItem link="/blog" title="BLOG" onClickEvent={closeMenu}>
+              <div css={gray_menu}></div>
+            </NavItem>
+          </motion.div>
+
+          <motion.div
+            {...navAnimationProps}
+            animate={{
+              ...navAnimationProps.animate,
+              transition: {
+                delay: navDelay * 4,
+                ease: "easeInOut",
+                duration: 1,
+              },
+            }}
+          >
             <NavItem link="/contact" title="CONTACT" onClickEvent={closeMenu}>
               <div css={gray_menu}></div>
             </NavItem>

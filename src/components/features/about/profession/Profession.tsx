@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import { FC, memo } from "react";
 import { css, keyframes } from "@emotion/react";
-import { handleElHover, handleElLeave } from "../../cursor/Cursor";
+import { handleElHover, handleElLeave } from "../../../ui/cursor/Cursor";
 import car_body from "../../../../images/car/car_body.png";
 import tire from "../../../../images/car/tire.png";
 

@@ -1,8 +1,8 @@
 /** @jsxImportSource @emotion/react */
 import { FC } from "react";
 import { css } from "@emotion/react";
-import Transition from "../../features/transition/Transition";
-import Footer from "../../features/footer/Footer";
+import Transition from "../../ui/transition/Transition";
+import Footer from "../../ui/footer/Footer";
 import Works from "../../features/work/Works";
 
 const Work: FC = () => {
