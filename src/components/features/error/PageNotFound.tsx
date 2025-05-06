@@ -21,6 +21,7 @@ const errorContainer = css`
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: #000000;
 `;
 
 const errorWrapper = css`
