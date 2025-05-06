@@ -10,7 +10,7 @@ const Footer: FC<FooterProp> = memo(({ className }) => {
   return (
     <footer css={[footerBase, className === 'absolute' ? footerAbsolute : footerRelative]}>
       <div css={copyright}>
-        <small>&copy; 2023 Takumasa Sugiyama</small>
+        <small>&copy; 2025 Takumasa Sugiyama</small>
       </div>
     </footer>
   );
