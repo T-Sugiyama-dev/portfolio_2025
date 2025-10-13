@@ -12,11 +12,14 @@ export interface CheckPoint {
 
 export type CareerItem = CareerContent | CheckPoint;
 
+const CAREER_11TH =
+  "I've started my career as a consultant";
+
 const CAREER_10TH =
-  "I am developing a web application that utilizes generative AI.";
+  "I was developing a web application that utilizes generative AI.";
 
 const CAREER_9TH =
-  "I'm involved in the development, maintenance, and operation of the admin dashboard, as well as product development.";
+  "I was involved in the development, maintenance, and operation of the admin dashboard, as well as product development.";
 
 const CAREER_8TH =
   "I was involved in the design and development of software to solve problems faced by client companies.";
@@ -46,10 +49,11 @@ const UNIVERSITY =
   "I was studying topics related to the information society and programming.";
 
 export const CAREER_LIST: CareerItem[] = [
-  { title: '2025', summary: 'Started working as AI engineer.' },
-  { term: 'Jan 2025 - Recent', role: 'AI Engineer', company: 'A company that provides consulting for implementing generative AI applications.', desc: CAREER_10TH },
+  { title: '2025', summary: 'Changed carrer' },
+  { term: 'Oct 2025 - Recent', role: 'Solution Consultant', company: 'Consulting company', desc: CAREER_11TH },
+  { term: 'Jan 2025 - Aug 2025', role: 'AI Engineer', company: 'A company that provides consulting for implementing generative AI applications.', desc: CAREER_10TH },
   { title: '2024', summary: 'Full-stack engineer' },
-  { term: 'Sep 2024 - Recent', role: 'Software Engineer', company: 'A company that operates a knowledge-sharing platform.', desc: CAREER_9TH },
+  { term: 'Sep 2024 - Sep 2025', role: 'Software Engineer', company: 'A company that operates a knowledge-sharing platform.', desc: CAREER_9TH },
   { term: 'Apr 2023 - Aug 2024', role: 'Software Engineer', company: 'IT-Consulting company', desc: CAREER_8TH },
   { title: '2023', summary: 'Graduate from university. Started working as a full-time employee.' },
   { term: 'Apr 2019 - Mar 2023', role: 'Graduate from university', company: '', desc: UNIVERSITY },
