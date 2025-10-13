@@ -17,10 +17,6 @@ const BlogOptions: FC = () => {
   return (
     <div css={container}>
       <div css={wrapper}>
-        <div css={titleWrapper}>
-          <h1 css={title}>BLOG.</h1>
-        </div>
-
         <div css={slideshowWrapper}>
           <img
             src={techImg}
@@ -32,6 +28,10 @@ const BlogOptions: FC = () => {
             css={[slideshowImg, active === "life" ? activeImg : inactiveImg]}
             alt="life style"
           />
+        </div>
+
+        <div css={titleWrapper}>
+          <h1 css={title}>BLOG.</h1>
         </div>
       </div>
     </div>

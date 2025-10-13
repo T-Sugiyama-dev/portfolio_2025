@@ -6,14 +6,16 @@ const SearchInputAnnimation: FC = () => {
   const targetText = "Takumasa Sugiyama Blog";
   const [input, setInput] = useState("");
   const [isTyping, setIsTyping] = useState(false);
+  const [showModal, setShowModal] = useState(false);
   const suggestions = [
     {
       "label": "Takumasa Sugiyama Blog Tech",
-      "link": "/blog/tech"
+      "link": "https://dev.takumasasugiyama.com/"
     },
     {
       "label": "Takumasa Sugiyama Blog Life Style",
-      "link": "/blog/life"
+      "link": "/blog/life",
+      "isComingSoon": true
     }
   ];
 
@@ -28,7 +30,7 @@ const SearchInputAnnimation: FC = () => {
     if (isTyping && input.length < targetText.length) {
       const timeout = setTimeout(() => {
         setInput(targetText.slice(0, input.length + 1));
-      }, 80); // タイピング速度
+      }, 130); // タイピング速度
       return () => clearTimeout(timeout);
     }
   }, [input, isTyping, targetText]);
@@ -38,6 +40,14 @@ const SearchInputAnnimation: FC = () => {
       setIsTyping(false);
     }
   }, [input, isTyping, targetText]);
+
+  const handleSuggestionClick = (suggestion: typeof suggestions[0]) => {
+    if (suggestion.isComingSoon) {
+      setShowModal(true);
+    } else {
+      window.open(suggestion.link, '_blank');
+    }
+  };
 
   return (
     <div css={container}>
@@ -51,13 +61,30 @@ const SearchInputAnnimation: FC = () => {
       {!isTyping && input.length === targetText.length && (
         <ul css={suggestionBox}>
           {suggestions.map((s, index) => (
-            <a href={s.link} key={index} css={link}>
+            <div
+              key={index}
+              css={link}
+              onClick={() => handleSuggestionClick(s)}
+              role="button"
+              tabIndex={0}
+            >
               <li css={suggestionItem}>
                 {s.label}
               </li>
-            </a>
+            </div>
           ))}
         </ul>
+      )}
+      {showModal && (
+        <div css={modalOverlay}>
+          <div css={modalContent}>
+            <h3>Coming Soon</h3>
+            <p>The lifestyle blog is currently under construction.</p>
+            <button css={modalButton} onClick={() => setShowModal(false)}>
+              Close
+            </button>
+          </div>
+        </div>
       )}
     </div>
   );
@@ -117,4 +144,39 @@ const suggestionItem = css`
 const link = css`
   text-decoration: none;
   color: inherit;
+`;
+
+const modalOverlay = css`
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+`;
+
+const modalContent = css`
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+`;
+
+const modalButton = css`
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: #9a68ff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  &:hover {
+    background-color: #522ca0;
+  }
 `;
