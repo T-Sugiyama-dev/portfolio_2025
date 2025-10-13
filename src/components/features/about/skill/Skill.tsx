@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import { FC, memo } from "react";
 import { css, keyframes } from "@emotion/react";
-import { handleElHover, handleElLeave } from "../../cursor/Cursor";
+import { handleElHover, handleElLeave } from "../../../ui/cursor/Cursor";
 import { useInView } from "react-intersection-observer";
 import { SKILL_LIST } from "../../../../constants/skill-list";
 

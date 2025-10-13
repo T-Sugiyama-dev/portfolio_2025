@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 import { FC, useState, useEffect, useRef } from "react";
-import { handleElHover, handleElLeave } from "../cursor/Cursor";
+import { handleElHover, handleElLeave } from "../../ui/cursor/Cursor";
 import heritage from "../../../images/work/heritage.jpg";
 import london_city_1 from "../../../images/work/london_city_1.jpg";
 import london_city_2 from "../../../images/work/london_city_2.jpg";

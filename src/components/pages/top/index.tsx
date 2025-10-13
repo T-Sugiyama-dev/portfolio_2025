@@ -3,8 +3,8 @@ import { FC } from "react";
 import { css } from "@emotion/react";
 import Main from "../../features/top/Main";
 import Chat from "../../features/top/Chat";
-import Transition from "../../features/transition/Transition";
-import Footer from "../../features/footer/Footer";
+import Transition from "../../ui/transition/Transition";
+import Footer from "../../ui/footer/Footer";
 
 const Top: FC = () => {
   return (

@@ -172,7 +172,8 @@ const styles = {
     top: css`color: #ff534d;`,
     about: css`color: rgb(64, 238, 238);`,
     work: css`color: #f11b9b;`,
-    contact: css`color: #71ff4a;`
+    contact: css`color: #71ff4a;`,
+    blog: css`color: #ffdb5a;`
   },
 
   fadeText: css`

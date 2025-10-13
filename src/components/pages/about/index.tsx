@@ -1,10 +1,10 @@
 /** @jsxImportSource @emotion/react */
 import { FC } from "react";
 import { css } from "@emotion/react";
-import Transition from "../../features/transition/Transition";
+import Transition from "../../ui/transition/Transition";
 import Resume from "../../features/about/resume/Resume";
 import Skill from "../../features/about/skill/Skill";
-import Footer from "../../features/footer/Footer";
+import Footer from "../../ui/footer/Footer";
 import Profile from "../../features/about/profile/Profile";
 import Profession from "../../features/about/profession/Profession";
 
