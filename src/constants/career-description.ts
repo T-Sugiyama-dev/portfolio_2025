@@ -8,9 +8,21 @@ export interface CareerContent {
 export interface CheckPoint {
   title: string;
   summary: string;
+  period: string;
 }
 
-export type CareerItem = CareerContent | CheckPoint;
+export interface TurningPoint {
+  from: string;
+  to: string;
+}
+
+export const CAREER_PERIOD = {
+  UNIVERSITY_STUDENT: "University Student",
+  ENGINEER: "Engineer",
+  CONSULTANT: "Consultant",
+}
+
+export type CareerItem = CareerContent | CheckPoint | TurningPoint;
 
 const CAREER_11TH =
   "I've started my career as a consultant";
@@ -45,27 +57,25 @@ const CAREER_2TH =
 const CAREER_1TH =
   "I was involved in editing video educational materials.";
 
-const UNIVERSITY =
-  "I was studying topics related to the information society and programming.";
-
 export const CAREER_LIST: CareerItem[] = [
-  { title: '2025', summary: 'Changed carrer' },
+  { title: '2025 - Recent', summary: 'Changed carrer', period: CAREER_PERIOD.CONSULTANT },
   { term: 'Oct 2025 - Recent', role: 'Solution Consultant', company: 'Consulting company', desc: CAREER_11TH },
   { term: 'Jan 2025 - Aug 2025', role: 'AI Engineer', company: 'A company that provides consulting for implementing generative AI applications.', desc: CAREER_10TH },
-  { title: '2024', summary: 'Full-stack engineer' },
+  { from: CAREER_PERIOD.ENGINEER, to: CAREER_PERIOD.CONSULTANT },
+  { title: '2024', summary: 'Full-stack engineer', period: CAREER_PERIOD.ENGINEER },
   { term: 'Sep 2024 - Sep 2025', role: 'Software Engineer', company: 'A company that operates a knowledge-sharing platform.', desc: CAREER_9TH },
+  { title: '2023', summary: 'Graduate from university. Started working as a full-time employee.', period: CAREER_PERIOD.ENGINEER },
   { term: 'Apr 2023 - Aug 2024', role: 'Software Engineer', company: 'IT-Consulting company', desc: CAREER_8TH },
-  { title: '2023', summary: 'Graduate from university. Started working as a full-time employee.' },
-  { term: 'Apr 2019 - Mar 2023', role: 'Graduate from university', company: '', desc: UNIVERSITY },
-  { title: '2022', summary: 'Started working as a front-end engineer and web designer.' },
+  { from: CAREER_PERIOD.UNIVERSITY_STUDENT, to: CAREER_PERIOD.ENGINEER },
+  { title: '2022', summary: 'Started working as a front-end engineer and web designer.', period: CAREER_PERIOD.UNIVERSITY_STUDENT },
   { term: 'May 2022 - Mar 2023', role: 'Front-end engineer, Web designer', company: 'Web media company', desc: CAREER_7TH },
   { term: 'May 2022 - Feb 2023', role: 'Front-end engineer, Web designer', company: 'Web design company', desc: CAREER_6TH },
   { term: 'Jan 2022 - Apr 2022', role: 'Marketer, Customer Success', company: 'Startup online platform company', desc: CAREER_5TH },
-  { title: '2021', summary: 'Experience internships in a variety of occupations.' },
+  { title: '2021', summary: 'Experience internships in a variety of occupations.', period: CAREER_PERIOD.UNIVERSITY_STUDENT },
   { term: 'Dec 2021 - Apr 2022', role: 'Front-end engineer, Social media marketer, Sales', company: 'Startup OTA company', desc: CAREER_4TH },
   { term: 'Aug 2021 - Mar 2022', role: 'Web designer', company: 'Startup web media company', desc: CAREER_3TH },
   { term: 'Jun 2021 - Oct 2021', role: 'Social media marketer', company: 'Production company', desc: CAREER_2TH },
-  { title: '2020', summary: 'Started creative work.' },
+  { title: '2020', summary: 'Started creative work.', period: CAREER_PERIOD.UNIVERSITY_STUDENT },
   { term: 'Sep 2020 - Nov 2020', role: 'Videographer', company: 'Startup video production company', desc: CAREER_1TH }
 ];
 

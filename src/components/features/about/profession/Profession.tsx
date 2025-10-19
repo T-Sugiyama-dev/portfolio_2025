@@ -173,7 +173,7 @@ const tireRear = css`
   position: absolute;
   z-index: 1;
   bottom: 0px;
-  left: 225px;
+  left: 223px;
   
   img {
     width: 50px;

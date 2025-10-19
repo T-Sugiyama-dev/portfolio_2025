@@ -2,13 +2,38 @@
 import { FC, memo } from "react";
 import { css } from "@emotion/react";
 import { motion } from "framer-motion";
-import { CAREER_LIST, CareerItem, CheckPoint } from "../../../../constants/career-description";
+import { CAREER_LIST, CareerItem, CheckPoint, CAREER_PERIOD, TurningPoint } from "../../../../constants/career-description";
 
 const Career: FC = memo(() => {
 
   // 型ガードの関数を追加
   const isCheckPoint = (item: CareerItem): item is CheckPoint => {
     return 'title' in item;
+  };
+
+  const isTurningPoint = (item: CareerItem): item is TurningPoint => {
+    return 'from' in item;
+  };
+
+  const checkpointColor = (period: string) => {
+    let color = "";
+    switch (period) {
+      case CAREER_PERIOD.UNIVERSITY_STUDENT:
+        color = "#1bb84a";
+        break;
+      case CAREER_PERIOD.ENGINEER:
+        color = "#e66e2d";
+        break;
+      case CAREER_PERIOD.CONSULTANT:
+        color = "#3c69f0";
+        break;
+      default:
+        color = "#3c69f0";
+    }
+    const style = css`
+      background-color: ${color};
+    `;
+    return style;
   };
 
   return (
@@ -35,17 +60,29 @@ const Career: FC = memo(() => {
           >
             {isCheckPoint(item) ?
               (
-                <div css={checkPoint}>
+                <div css={[checkPoint, checkpointColor(item.period)]}>
                   <p css={title}>{item.title}</p>
                   <p css={summary}>{item.summary}</p>
                 </div>
               ) : (
-                <div css={content}>
-                  <p css={term}>{item.term}</p>
-                  <h4 css={role}>{item.role}</h4>
-                  <p css={company}>{item.company}</p>
-                  <p css={desc}>{item.desc}</p>
-                </div>
+                isTurningPoint(item) ?
+                  (
+                    <div css={turningPoint}>
+                      <div css={[turningPointWrapper, checkpointColor(item.to)]}>
+                        {item.to}
+                      </div>
+
+                      <div css={[turningPointWrapper, checkpointColor(item.from)]}>
+                        {item.from}
+                      </div>
+                    </div>
+                  ) :
+                  <div css={content}>
+                    <p css={term}>{item.term}</p>
+                    <h4 css={role}>{item.role}</h4>
+                    <p css={company}>{item.company}</p>
+                    <p css={desc}>{item.desc}</p>
+                  </div>
               )
             }
           </motion.div>
@@ -58,7 +95,6 @@ const Career: FC = memo(() => {
 export default Career;
 
 const checkPoint = css`
-  background-color: rgb(67 75 247);
   border-radius: 15px;
   width: 40%;
   padding: 15px;
@@ -67,6 +103,27 @@ const checkPoint = css`
   @media (max-width: 500px) {
     width: 55%;
   }
+`;
+
+const turningPoint = css`
+  border-radius: 15px;
+  width: 60%;
+  margin: 80px;
+  overflow: hidden;
+
+  @media (max-width: 500px) {
+    width: 70%;
+    margin: 60px;
+  }
+`;
+
+const turningPointWrapper = css`
+  color: #ffffff;
+  font-size: 17px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 const title = css`
